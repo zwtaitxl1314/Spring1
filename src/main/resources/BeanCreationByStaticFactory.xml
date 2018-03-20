@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- scope="singleton"是默认值，表示当前容器中只会有一个实例	 -->
+	<!-- scope="prototype"表示，每次从容器中获得Bean时，都会创建一个新的实例 -->
+	<bean id="train" class="creation.Train" factory-method="create" scope="prototype"/>
+	
+	<bean id="sun" class="creation.Sun" factory-method="suncreat"  />
+</beans>

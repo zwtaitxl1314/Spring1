@@ -4,4 +4,10 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <!--log4j配置文件加载-->
+  <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:log4j.properties</param-value>
+  </context-param>
 </web-app>

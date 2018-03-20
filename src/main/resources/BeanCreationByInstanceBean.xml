@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 创建实例工厂对应 Bean-->
+	<bean id="factory" 
+	      class="creation.CarFactory"
+	      p:name="宝马奔驰！~~~"
+	      />
+	      
+	<!-- factory-bean属性:用来指定创建Car实例的"工厂"的对象 -->
+	<!-- factory-method属性:用来指定在 factory-bean中指定的Bean中的创建Car的实例方法-->
+	<bean id="car" factory-bean="factory" factory-method="create" />
+	
+</beans>
