@@ -10,7 +10,15 @@ public class Person {
 	private String gender;
 	
 	private Person girl;
-	
+
+	public Person() {
+		super();
+	}
+
+	public Person(Person girl) {
+		this.girl = girl;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -35,6 +43,12 @@ public class Person {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	
+
+	public Person getGirl() {
+		return girl;
+	}
+
+	public void setGirl(Person girl) {
+		this.girl = girl;
+	}
 }
