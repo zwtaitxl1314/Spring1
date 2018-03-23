@@ -6,8 +6,8 @@
 
 	<!-- 创建实例工厂对应 Bean-->
 	<bean id="factory" 
-	      class="creation.CarFactory"
-	      p:name="宝马奔驰！~~~"
+	      class="beanCreation.instanceFactory.CarFactory"
+		  p:name="老汉推车"
 	      />
 	      
 	<!-- factory-bean属性:用来指定创建Car实例的"工厂"的对象 -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 因为Date类型没有实现FactoryBean接口，因此这里配置将导致返回Date类型的实例 -->
+	<bean id="date" class="java.util.Date"/>
+	
+	<!-- 因为 BusFactoryBean类实现了FactoryBean接口，因此这里的配置返回的实例类型，是BusFactory中getObject方法的返回值类型-->
+	<bean id="bus" 
+	      class="beanCreation.factoryBean.BusFactoryBean"
+	      p:name="海南大巴车"
+	      />
+	
+
+</beans>
