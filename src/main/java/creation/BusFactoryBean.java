@@ -16,19 +16,16 @@ public class BusFactoryBean implements FactoryBean<Bus>{
 		this.name = name;
 	}
 
-	@Override
 	public Bus getObject() throws Exception {
 		Bus b = new Bus();
 		b.setName(name);
 		return b;
 	}
 
-	@Override
 	public Class<?> getObjectType() {
 		return null;
 	}
 
-	@Override
 	public boolean isSingleton() {
 		return false;
 	}

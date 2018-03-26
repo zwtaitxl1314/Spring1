@@ -5,9 +5,32 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
+
+
   <!--log4j配置文件加载-->
   <context-param>
     <param-name>log4jConfigLocation</param-name>
     <param-value>classpath:log4j.properties</param-value>
   </context-param>
+
+  <!--配置ContextLoaderListener 监听器中将要读取的初始化参数(ServletContext的初始化参数)-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:scope/web-scope.xml</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+
+  <!--监听Web容器对当前Web应用的 加载 和 卸载-->
+  <!--当Web容器 加载 当前的Web应用时 就创建 并初始化 Spring IOC容器,并将该容器放入到application中-->
+  <!--当Web容器 卸载 当前的Web应用时 就通过application获得 Spring IOC容器并销毁他-->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+
+
+
 </web-app>
