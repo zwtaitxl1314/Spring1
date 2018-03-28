@@ -16,9 +16,10 @@
   <!--配置ContextLoaderListener 监听器中将要读取的初始化参数(ServletContext的初始化参数)-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:scope/web-scope.xml</param-value>
+    <param-value>classpath:ioc/scope/web-scope.xml</param-value>
   </context-param>
 
+  <!--当要把Bean的Scope设置为request 、session时，就必须要使用这个监听器，去接受HTTP请求作为Spring容器启动的控制逻辑-->
   <listener>
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>

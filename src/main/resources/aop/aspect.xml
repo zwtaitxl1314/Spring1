@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="people"  class="aop.aspect.People"/>
+
+    <bean id="air" class="aop.aspect.Sun" p:name="太阳"/>
+
+    <aop:config>
+
+        <!--声明切点(pointcut)：全局切点
+         <aop:pointcut id="" expression="" />
+        -->
+
+        <!--从id==ref的Bean代表的类中的获得 切入的方法-->
+        <aop:aspect ref="people">
+
+            <!--声明切点(pointcut)：局部切点-->
+            <aop:pointcut id="cut" expression="execution(* aop.aspect.Sun.*(..))" />
+
+            <!--在cut对应的方法执行之前执行People.qianmian()方法
+            pointcut-ref ： 切点的应用-->
+            <aop:before pointcut-ref="cut" method="qianmian"/>
+
+            <!--在cut对应的方法执行之后执行People.houmian()方法
+            若选择的是pointcut，不是pointcut-ref，这需要把整个方法的路径放进去            -->
+            <aop:after pointcut="execution(* aop.aspect.Sun.*(..))" method="houmian" />
+
+        </aop:aspect>
+
+    </aop:config>
+</beans>
